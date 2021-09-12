@@ -30,8 +30,8 @@ Built an image repository which allows the user to register, login, upload and d
     - Sample Request Body
         ```
         {
-        email : "ThirdUser@gmail.com"
-        password: "anypassword"
+            email : "ThirdUser@gmail.com"
+            password: "anypassword"
         }
         ```
         
@@ -79,12 +79,11 @@ Built an image repository which allows the user to register, login, upload and d
             - Only users with permission for the image can download the image
         - Ensure Bulk Imgaes are deleted : Following a parallel model(As in the case of upload),only allowing one image to be deleted at a time to prevent malicious attacks and increase speed of the response.
         
-         - Sample request body:
-                ```
+          - Sample request body:
+       
                     {
                         "imageName" : "d10d92934b608ed70a0a17db4e92efc2.png"
                     }
-                ```
         
         - Download an Image: Get {api/image/download}
 
@@ -103,12 +102,12 @@ Built an image repository which allows the user to register, login, upload and d
         - <b>Ensuring bulk deletion of the images</b>: Only one image is allowed to be deleted at a time to follow a parallel model instead of a sequential model to prevent malicious attacks and increase speed of the response
         - Delete an image : Delete {api/image/}
 
-                - Sample Request body :
-                ```
+          - Sample Request body :
+
                 {
                     "imageName" : "d10d92934b608ed70a0a17db4e92efc2.png"
                 }
-                ```
+
                 
             - The Postman Request:
                 ![deleteimage](https://user-images.githubusercontent.com/59619895/132993201-21687e10-f3a0-470d-9e35-63bb2b13d5d4.png)
