@@ -3,7 +3,7 @@ Built an image repository which allows the user to register, login, upload and d
 
 
 ### For a video demonstration visit
--  [Youtube Video](https://imagerepo-shopify.herokuapp.com/ui/)
+-  [Youtube Video](https://youtu.be/70dXZQCRH48)
 
 # Table of Contents
 - [Authentication](#authentication)
