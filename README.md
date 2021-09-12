@@ -22,26 +22,21 @@ Built an image repository which allows the user to register, login, upload and d
 -  I used Google Firestore Authentication to ensure secure authentication
 -  A user will only have access to their images and only they can delete/view their images.
 
-    ```
-    {
-        email : user_email
-        password: user_password
-    }
-    ```
 
 -  <b>Create a new user</b>: Post {/api/auth/signup}
     -  Pass in the email and password in the request body.These details get stored in the firestore authentication table. 
     -  The password is first encypted using firestore encryption and then stored in the database for safety.
 
-
+    - Sample Request Body
+        ```
+        {
+        email : "ThirdUser@gmail.com"
+        password: "anypassword"
+        }
+        ```
+        
     - The Postman Request
         ![createuser](https://user-images.githubusercontent.com/59619895/132992863-974afdf7-31e7-465c-8991-e6087ed4d0e4.png)
-
-
-    - Sample Response Body
-        ```
-        User successfully logged in
-        ```
 
 -  <b>Login for an existing user</b>: Post {/api/auth/login} 
     - Provide the email and password of the user created above in the signup endpoint. 
@@ -65,10 +60,7 @@ Built an image repository which allows the user to register, login, upload and d
             - Only allowing one image to be uploaded at a time : Reason is to allow parallel uploading instead of sequential to prevent malicious attacks and increase speed of the response.
             
         - Upload an Image: Post {api/image/upload}
-
-            - The Postman Request
-                ![image](https://user-images.githubusercontent.com/59619895/132993037-b6070618-3559-4d9e-95ee-d1cff2b49852.png)
-
+            
             - Sample Request Body:
                 ```
                 {
@@ -76,6 +68,9 @@ Built an image repository which allows the user to register, login, upload and d
                     "desc": "cat"
                 }
                 ```
+                
+            - The Postman Request:
+                ![image](https://user-images.githubusercontent.com/59619895/132993037-b6070618-3559-4d9e-95ee-d1cff2b49852.png)
                
     - Downloading an image:
         - Download : The file's download url is generated using firebase
@@ -84,61 +79,54 @@ Built an image repository which allows the user to register, login, upload and d
             - Only users with permission for the image can download the image
         - Ensure Bulk Imgaes are deleted : Following a parallel model(As in the case of upload),only allowing one image to be deleted at a time to prevent malicious attacks and increase speed of the response.
         
+                    - Sample request body:
+                ```
+                    {
+                        "imageName" : "d10d92934b608ed70a0a17db4e92efc2.png"
+                    }
+                ```
         
         - Download an Image: Get {api/image/download}
 
             - The Postman Request
                 ![downloadimage](https://user-images.githubusercontent.com/59619895/132993096-2e52d368-7529-41ff-baad-89d3284801c9.png)
 
-            - Sample response body:
-                ```
-                    https://firebasestorage.googleapis.com/v0/b/shopify-d7101.appspot.com/o/e68cd5001de84539fe4ef8b99c63e515b852ad956a1470b78d028ac21599435395?alt=media&token=c8bbf46d-fe8e-45a6-8170-89862a965b46
-                ```
     - Reading a list of images: Get {api/image}
         -  This endpoint helps in reading the images related to a user. Only an authorized user can access this.
 
         - The Postman Request:
             ![readingimages](https://user-images.githubusercontent.com/59619895/132993149-94f7bab2-b5e9-4f6f-9c49-fd15298e9365.png)
 
-        - Sample response body:
-            ```
-                {
-                    "imageName": [
-                        "d10d92934b608ed70a0a17db4e92efc2.png",
-                        "685f6d8ec8d14904afc6b6929457262f.png"
-                    ],
-                    "imageDesc": [
-                        "banana",
-                        "cat"
-                    ]
-                }
-            ```
     - Deleting an image for the user:
         - <b>Secure Deletion of the image </b>: 
             - This function is used to delete an image. 
         - <b>Ensuring bulk deletion of the images</b>: Only one image is allowed to be deleted at a time to follow a parallel model instead of a sequential model to prevent malicious attacks and increase speed of the response
         - Delete an image : Delete {api/image/}
+
+                - Sample Request body :
+                ```
+                {
+                    "imageName" : "d10d92934b608ed70a0a17db4e92efc2.png"
+                }
+                ```
+                
             - The Postman Request:
                 ![deleteimage](https://user-images.githubusercontent.com/59619895/132993201-21687e10-f3a0-470d-9e35-63bb2b13d5d4.png)
-
-            - Sample response :
-                ```
-                Successfully deleted
-                ```
                 
 <p align="center">
     <u><h2 align="center">Share</h2></u>
 </p>
 
 - Have you ever used google photos ? Wanna share your photos with your friends ? Here you go :) . Sharing allows a user to share his images with other users. 
-
+    - Sample Request Body:
+        ```
+        {
+            "imageName" : "d10d92934b608ed70a0a17db4e92efc2.png",
+            "senderEmail": "secondUser@gmail.com"
+        }
+        ```
     - The Postman Request:
         ![access](https://user-images.githubusercontent.com/59619895/132993267-ca02e490-aef1-46b7-ba47-9a2110a220af.png)
-
-    - Sample response body:
-        ```
-        Succesfully shared the image to secondUser@gmail.com
-        ```
 
 <p align="center">
     <u><h2 align="center">Future Features</h2></u>
