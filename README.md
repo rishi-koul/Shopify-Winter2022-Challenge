@@ -11,12 +11,61 @@ Built an image repository which the following features
 -  [Youtube Video](https://youtu.be/70dXZQCRH48)
 
 # Table of Contents
+-[Installations](#installations)
 - [Authentication](#authentication)
 - [Images](#images)
 - [Share](#share)
 - [Future Features](#future-features)
 - [Note For Shopify Developers](#note-for-shopify-developers)
 - [Contact Me](#contact-me)
+
+<p align="center">
+    <u><h2 align="center">Installations</h2></u>
+</p>
+
+- To install all the dependencies run 
+```bash
+npm i
+```
+
+- Please create a Firebase Project for this and make sure to enable the ```email and password``` authentication on it
+
+- Under the firebaseSetup folder pls create a file named ```firebaseConfig.js``` and inside the file pls paste your firebase app configuration and export it like this: 
+```
+ const firebaseConfig = {
+     apiKey: YOUR_API_KEY,
+     authDomain: YOUR_AUTH_DOMAIN,
+     projectId: YOUR_PROJECT_ID,
+     storageBucket: YOUR_STORAGE_BUCKET,
+     appId: YOUR_API_ID
+   };
+
+ module.exports = { firebaseConfig }
+ 
+```
+
+- Next go to your ```Firebase project -> Project Settings -> Service Accounts``` and download the firebase SDK by clicking ```Generate New Private Key``` button
+- Rename the file to ``` serviceAccountKey.json ``` and put it in the root folder. The file will look like this
+```
+ {
+  "type": ,
+  "project_id": ,
+  "private_key_id": ,
+  "private_key": ,
+  "client_email": ,
+  "client_id": ,
+  "auth_uri": ,
+  "token_uri": ,
+  "auth_provider_x509_cert_url": ,
+  "client_x509_cert_url": 
+}
+```
+
+- Finally pls create a ```.env``` file and enter your create a variable name BUCKET_URL in it containing your Firebase Bucket Url
+
+```
+  BUCKET_URL=YOUR_BUCKET_URL
+```
 
 ## Features
 
