@@ -16,10 +16,10 @@ const getImages = async (req, res) => {
             res.status(200).send(data.data());
 
         } catch (error) {
-            res.send(error)
+            res.status(400).send(error)
         }
     }else{
-        res.status(404).send("Pls login first")
+        res.status(401).send("Pls login first")
     }
 
 };
@@ -39,12 +39,12 @@ const upload = async (req, res) => {
             await docRef.update({imageDesc: admin.firestore.FieldValue.arrayUnion(req.body.desc)})
             await docRef.update({imageName: admin.firestore.FieldValue.arrayUnion(fileName)})
     
-            res.send('Image Succesfullly Uploaded');
+            res.status(200).send('Image Succesfullly Uploaded');
         }else{
-            res.send("One or more argumnets missing")
+            res.status(404).send("One or more argumnets missing")
         }
     }else{
-        res.status(404).send("Pls login first")
+        res.status(401).send("Pls login first")
     }
 
 };
@@ -64,10 +64,10 @@ const download = async (req, res) => {
             })
         }
         else{
-            res.send("One or more argumnets missing")
+            res.status(404).send("One or more argumnets missing")
         }
     }else{
-        res.status(404).send("Pls login first")
+        res.status(401).send("Pls login first")
     }
 
 };
@@ -88,15 +88,16 @@ const deleteImage = async (req, res) => {
                 await docRef.update({imageName: admin.firestore.FieldValue.arrayRemove(req.body.imageName)})
                 await docRef.update({imageDesc: admin.firestore.FieldValue.arrayRemove(desc)})
 
+                res.status(201).send("Successfully deleted")
             } catch (error) {
-                res.send(`The user doesnt have any image named ${req.body.imageName}`)
+                res.status(406).send(`The user doesnt have any image named ${req.body.imageName}`)
             }
         }
         else{
-            res.send("One or more argumnets missing")
+            res.status(404).send("One or more argumnets missing")
         }  
     }else{
-        res.status(404).send("Pls login first")
+        res.status(401).send("Pls login first")
     }
 };
 
@@ -112,7 +113,7 @@ const shareImage = async (req, res) => {
             var index = data.data().imageName.findIndex(name => name === req.body.imageName)
             if(index === -1){
                 const err = "You dont own an image named " + req.body.imageName
-                res.send(err)
+                res.status(406).send(err)
             }
             var desc = data.data().imageDesc[index]
 
@@ -127,14 +128,14 @@ const shareImage = async (req, res) => {
                 
             })
             .catch((err)=>{
-                res.send(`No user with the email ${req.body.senderEmail} exists`)
+                res.status(406).send(`No user with the email ${req.body.senderEmail} exists`)
             })
         }
         else{
-            res.send("One or more argumnets missing")
+            res.status(404).send("One or more argumnets missing")
         }
     }else{
-        res.status(404).send("Pls login first")
+        res.status(401).send("Pls login first")
     }
 };
 
