@@ -79,7 +79,7 @@ Built an image repository which allows the user to register, login, upload and d
             - Only users with permission for the image can download the image
         - Ensure Bulk Imgaes are deleted : Following a parallel model(As in the case of upload),only allowing one image to be deleted at a time to prevent malicious attacks and increase speed of the response.
         
-                    - Sample request body:
+         - Sample request body:
                 ```
                     {
                         "imageName" : "d10d92934b608ed70a0a17db4e92efc2.png"
