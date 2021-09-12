@@ -1,0 +1,37 @@
+{
+  "name": "shopify-winter2022-challenge",
+  "version": "1.0.0",
+  "description": "Trying the Shopify Winter 2022 Challenge",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishi-koul/Shopify-Winter2022-Challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishi-koul/Shopify-Winter2022-Challenge/issues"
+  },
+  "homepage": "https://github.com/rishi-koul/Shopify-Winter2022-Challenge#readme",
+  "dependencies": {
+    "@google-cloud/storage": "^5.14.1",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "firebase": "^9.0.2",
+    "firebase-admin": "^9.11.1",
+    "md5": "^2.3.0",
+    "multer": "^1.4.3",
+    "path": "^0.12.7",
+    "salted-md5": "^4.0.2"
+  }
+}
