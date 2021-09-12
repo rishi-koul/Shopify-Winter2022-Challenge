@@ -11,7 +11,7 @@ Built an image repository which the following features
 -  [Youtube Video](https://youtu.be/70dXZQCRH48)
 
 # Table of Contents
--[Installations](#installations)
+- [Installations](#installations)
 - [Authentication](#authentication)
 - [Images](#images)
 - [Share](#share)
