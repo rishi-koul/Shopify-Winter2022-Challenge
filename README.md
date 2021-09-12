@@ -1,6 +1,11 @@
 # Shopify-Winter2022-Challenge: Backend Developer Intern Challenge
-Built an image repository which allows the user to register, login, upload and download images, delete images, and share images with other users
+Built an image repository which the following features
 
+ - Secured Authentication (login, signup)
+ - Uploading/Downloading images
+ - Delete images
+ - Sharing images with other users
+    
 
 ### For a video demonstration visit
 -  [Youtube Video](https://youtu.be/70dXZQCRH48)
@@ -55,7 +60,7 @@ Built an image repository which allows the user to register, login, upload and d
     - Upload an image :
         - <b>Storage of an image</b>: 
             - The storage of the image is done in Firebase cloud storage because of multiple reasons relating to security, costs and backups
-            - Along with this the name of the image is stored in firebase firestore databse (the filename undergoes md5 hashing and salting to ensure final image names are unique)
+            - Along with this the name of the image is stored in firebase firestore (the filename undergoes md5 hashing and salting to ensure final image names are unique)
         -  <b> Ensure Bulk Images are uploaded </b>:
             - Only allowing one image to be uploaded at a time : Reason is to allow parallel uploading instead of sequential to prevent malicious attacks and increase speed of the response.
             
