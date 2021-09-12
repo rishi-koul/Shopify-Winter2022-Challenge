@@ -20,7 +20,7 @@ Built an image repository which allows the user to register, login, upload and d
 </p>
 
 -  I used Google Firestore Authentication to ensure secure authentication
--  A user will only have access to their images and can only delete/view their images.
+-  A user will only have access to their images and only they can delete/view their images.
 
     ```
     {
